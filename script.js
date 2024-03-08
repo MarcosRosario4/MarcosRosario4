@@ -51,6 +51,25 @@ function render() {
         </tr>
     `).join('');
     }
+    // Function to mark a task as complete
+    function markTaskComplete(button) {
+    // Access the parent row of the button
+    const row = button.parentNode.parentNode;
+    // Remove the row from the table
+    row.remove();
+}
+
+    // Function to remove a task from the list
+    function removeTask(button) {
+    // Access the parent row of the button
+    const row = button.parentNode.parentNode;
+    // Get the index of the task in the tasks array based on the row's position
+    const index = Array.from(row.parentNode.children).indexOf(row);
+    // Remove the task from the tasks array
+    tasks.splice(index, 1);
+    // Update the table
+    render();
+}
 
     // Function to initialize the table
     function init() {
